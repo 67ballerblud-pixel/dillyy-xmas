@@ -1,0 +1,271 @@
+# DillyyXmas config. Rewards are console commands; %player% is replaced with the player's name.
+prefix: "&c&l[&a&lXmas&c&l] &r"
+timezone: "America/Chicago"      # used for the advent calendar dates
+
+advent:
+  title: "&c&lAdvent Calendar"
+  test-mode: false               # true = every door can be opened right now (for testing)
+  late-claim: true               # true = missed days can still be claimed later in December
+  join-reminder: true
+  timezone-lock: true            # players can pick their timezone once (stops claiming days early); staff can change it with /xmas timezone
+  # To give crate keys use your plugin's key command (check /crate usage in-game), then add it as a line here.
+  days:
+    1:
+      display: "&a$250,000"
+      commands:
+        - "addmoney %player% 250000"
+    2:
+      display: "&e20 Shards"
+      commands:
+        - "addshards %player% 20"
+    3:
+      display: "&a$750,000"
+      commands:
+        - "addmoney %player% 750000"
+    4:
+      display: "&e40 Shards"
+      commands:
+        - "addshards %player% 40"
+    5:
+      display: "&d$2,500,000 + 100 Shards"
+      commands:
+        - "addmoney %player% 2500000"
+        - "addshards %player% 100"
+    6:
+      display: "&e60 Shards"
+      commands:
+        - "addshards %player% 60"
+    7:
+      display: "&a$1,750,000"
+      commands:
+        - "addmoney %player% 1750000"
+    8:
+      display: "&e80 Shards"
+      commands:
+        - "addshards %player% 80"
+    9:
+      display: "&a$2,250,000"
+      commands:
+        - "addmoney %player% 2250000"
+    10:
+      display: "&d$5,000,000 + 200 Shards"
+      commands:
+        - "addmoney %player% 5000000"
+        - "addshards %player% 200"
+    11:
+      display: "&a$2,750,000"
+      commands:
+        - "addmoney %player% 2750000"
+    12:
+      display: "&e120 Shards"
+      commands:
+        - "addshards %player% 120"
+    13:
+      display: "&a$3,250,000"
+      commands:
+        - "addmoney %player% 3250000"
+    14:
+      display: "&e140 Shards"
+      commands:
+        - "addshards %player% 140"
+    15:
+      display: "&d$7,500,000 + 300 Shards"
+      commands:
+        - "addmoney %player% 7500000"
+        - "addshards %player% 300"
+    16:
+      display: "&e160 Shards"
+      commands:
+        - "addshards %player% 160"
+    17:
+      display: "&a$4,250,000"
+      commands:
+        - "addmoney %player% 4250000"
+    18:
+      display: "&e180 Shards"
+      commands:
+        - "addshards %player% 180"
+    19:
+      display: "&a$4,750,000"
+      commands:
+        - "addmoney %player% 4750000"
+    20:
+      display: "&d$10,000,000 + 400 Shards"
+      commands:
+        - "addmoney %player% 10000000"
+        - "addshards %player% 400"
+    21:
+      display: "&a$5,250,000"
+      commands:
+        - "addmoney %player% 5250000"
+    22:
+      display: "&e220 Shards"
+      commands:
+        - "addshards %player% 220"
+    23:
+      display: "&a$5,750,000"
+      commands:
+        - "addmoney %player% 5750000"
+    24:
+      display: "&e240 Shards"
+      commands:
+        - "addshards %player% 240"
+    25:
+      display: "&6&l$50,000,000 + 2,500 Shards"
+      commands:
+        - "addmoney %player% 50000000"
+        - "addshards %player% 2500"
+
+presents:
+  enabled: true
+  world: "world"                 # overworld recommended
+  center-x: 0                    # centre of the area presents spawn around
+  center-z: 0
+  min-radius: 50
+  max-radius: 500
+  interval-minutes: 20
+  max-active: 3
+  lifetime-minutes: 10
+  min-online: 1
+  hint-rounding: 100             # coordinates in the announcement are rounded to this (0 = exact)
+  materials: [RED_SHULKER_BOX, GREEN_SHULKER_BOX, WHITE_SHULKER_BOX]
+  announce-message: "&c&l[&a&lXmas&c&l] &fA &c&lPresent &fappeared in the wild near &e{where}&f! Find it and right-click it!"
+  found-message: "&c&l[&a&lXmas&c&l] &e{player} &ffound a present and got &a{reward}&f!"
+  rewards:
+    - weight: 50
+      name: "&a$500,000"
+      commands: ["addmoney %player% 500000"]
+    - weight: 30
+      name: "&e$2,000,000"
+      commands: ["addmoney %player% 2000000"]
+    - weight: 15
+      name: "&d150 Shards"
+      commands: ["addshards %player% 150"]
+    - weight: 5
+      name: "&6&l$10,000,000 + 500 Shards"
+      commands: ["addmoney %player% 10000000", "addshards %player% 500"]
+    # Christmas crate keys (needs the "christmas" crate from extras/christmas-crate.yml in your crates.yml)
+    - weight: 25
+      name: "&c&lChristmas &a&lCrate Key"
+      commands: ["crate key %player% christmas 1"]
+    - weight: 5
+      name: "&c&l3 Christmas &a&lCrate Keys"
+      commands: ["crate key %player% christmas 3"]
+
+snow:
+  enabled: true
+  worlds: ["world"]
+  only-near-spawn: true
+  spawn-radius: 150
+  density: 25                    # particles per burst
+
+# Timezones shown in the /advent timezone menu (max 14). Players can also type any zone: /advent timezone Europe/Paris
+timezone-options:
+  - {name: "Eastern (US/Canada)", zone: "America/New_York"}
+  - {name: "Central (US/Canada)", zone: "America/Chicago"}
+  - {name: "Mountain (US/Canada)", zone: "America/Denver"}
+  - {name: "Pacific (US/Canada)", zone: "America/Los_Angeles"}
+  - {name: "Alaska", zone: "America/Anchorage"}
+  - {name: "Hawaii", zone: "Pacific/Honolulu"}
+  - {name: "Brazil", zone: "America/Sao_Paulo"}
+  - {name: "United Kingdom", zone: "Europe/London"}
+  - {name: "Central Europe", zone: "Europe/Berlin"}
+  - {name: "Eastern Europe", zone: "Europe/Helsinki"}
+  - {name: "India", zone: "Asia/Kolkata"}
+  - {name: "China / Philippines", zone: "Asia/Shanghai"}
+  - {name: "Japan", zone: "Asia/Tokyo"}
+  - {name: "Australia (Sydney)", zone: "Australia/Sydney"}
+
+# ---------------- Christmas Mailbox ----------------
+# Players craft a Christmas Mailbox, place it down and right-click it to mail an item to ANY player who
+# has joined the server (online or offline). The gift waits in the recipient's mail until they open any
+# mailbox and claim it. Every mailbox is the same network: mail belongs to the player, not the block.
+mailbox:
+  enabled: true
+  discover-recipe-on-join: true  # unlock the recipe in the recipe book when players join
+  recipe:                        # shape rows must be the same length (max 3x3); use a space for an empty slot
+    shape: ["IDI", "IBI", "IPI"]
+    ingredients:
+      I: IRON_INGOT
+      D: RED_DYE
+      B: BARREL
+      P: PAPER
+  max-inbox: 54                  # max unclaimed gifts one player can have waiting (stops inbox spam)
+  send-cooldown-seconds: 3
+  allow-self: false              # allow mailing yourself (useful for testing)
+  confirm-before-send: true      # show a "Send this gift?" screen
+  # Sounds are vanilla sound keys (or "none")
+  send-sound: "entity.experience_orb.pickup"
+  receive-sound: "entity.player.levelup"
+  claim-sound: "entity.item.pickup"
+  # Items that cannot be mailed (Material names)
+  blacklist:
+    - BEDROCK
+    - BARRIER
+    - COMMAND_BLOCK
+    - CHAIN_COMMAND_BLOCK
+    - REPEATING_COMMAND_BLOCK
+    - COMMAND_BLOCK_MINECART
+    - STRUCTURE_BLOCK
+    - STRUCTURE_VOID
+    - JIGSAW
+    - LIGHT
+    - DEBUG_STICK
+    - KNOWLEDGE_BOOK
+    - SPAWNER
+    - TRIAL_SPAWNER
+    - VAULT
+
+# ---------------- custom items ----------------
+items:
+  frost-wand:
+    cooldown-ticks: 60
+    damage: 3
+    slow-seconds: 3
+
+# ---------------- The Grinch (boss) ----------------
+# Start it with /xmas boss spawn (spawns where you stand), or turn on auto-spawn below.
+boss:
+  name: "&a&lThe Grinch"
+  health: 1000
+  damage: 8
+  speed: 0.28
+  scale: 2.0                     # size multiplier
+  xp: 500
+  ability-interval-seconds: 7    # stomp / snowballs / summon elves (faster when enraged)
+  stomp-damage: 6
+  snowball-damage: 3
+  max-minions: 6
+  max-lifetime-minutes: 20       # he leaves if nobody kills him
+  broadcast-spawn: true
+  min-damage-to-reward: 20
+  location:                      # used by auto-spawn and /xmas boss spawn from console
+    world: "world"
+    x: 0
+    y: 100
+    z: 0
+  auto-spawn:
+    enabled: false
+    interval-minutes: 120
+    min-online: 3
+  # Everyone who deals at least min-damage-to-reward gets these:
+  participation-commands:
+    - "addmoney %player% 2000000"
+    - "addshards %player% 100"
+    # Add Christmas crate keys here once you know your crate-key command (check /crate in-game), e.g.
+    # - "crate key add %player% christmas 1"
+  # Extra rewards for the top 3 damage dealers:
+  top-commands:
+    1:
+      - "addmoney %player% 20000000"
+      - "addshards %player% 500"
+      - "xmas give %player% grinch_heart"
+      - "xmas give %player% santa_hat"
+    2:
+      - "addmoney %player% 10000000"
+      - "addshards %player% 250"
+      - "xmas give %player% candy_cane_sword"
+    3:
+      - "addmoney %player% 5000000"
+      - "addshards %player% 100"
+      - "xmas give %player% frost_wand"
